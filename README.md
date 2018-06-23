@@ -1,6 +1,6 @@
 # vue-admin
 
-> A Vue.js project
+基于 `vue` 的后台管理系统
 
 ## Build Setup
 
