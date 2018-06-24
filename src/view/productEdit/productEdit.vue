@@ -24,7 +24,7 @@
           name="file"
           drag
           :on-success="handleAvatarSuccess"
-          action="/api/product/upload"
+          action="https://api.airtlab.com/product/upload"
           multiple>
           <i class="el-icon-upload"></i>
           <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
