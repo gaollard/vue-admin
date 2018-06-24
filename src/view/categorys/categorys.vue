@@ -28,7 +28,7 @@ export default {
   async created () {
     if (this.tableData.length === 0) {
       let ret = await api.getCategorys()
-      let list = ret.data.data.categorys
+      let list = ret.data.categorys
       list.forEach(item => {
         item.createTime = item.updateTime = '2018-06-07T14:54:37.880Z'
       })

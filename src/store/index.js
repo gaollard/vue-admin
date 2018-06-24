@@ -1,15 +1,29 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import brand from './module/brand'
 
-const store = new Vuex.Store({
+Vue.use(Vuex)
+
+export default new Vuex.Store({
   state: {
-    count: 0
+    count: 1
+  },
+  getters: {
+    count () {
+      return 1
+    }
   },
   mutations: {
-    increment (state) {
-      state.count++
+    SET_COUNT (state, data) {
+      state.count = data
     }
+  },
+  actions: {
+    GET_COUNT ({ commit }, data) {
+      commit('SET_COUNT', data)
+    }
+  },
+  modules: {
+    brand
   }
-}
-
-export default store
+})

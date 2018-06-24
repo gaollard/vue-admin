@@ -70,6 +70,10 @@ export default {
     handleClose () {
 
     }
+  },
+  create () {
+    // this.$store.dispatch('brand/GET_BRANDS')
+    // this.$store.dispatch('brand/GET_BRANDS')
   }
 }
 </script>

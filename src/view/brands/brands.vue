@@ -29,7 +29,7 @@ export default {
   async created () {
     if (this.tableData.length === 0) {
       let ret = await api.getBrands()
-      this.tableData = ret.data.data.brands
+      this.tableData = ret.data.brands
     }
   }
 }
