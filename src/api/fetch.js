@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import axios from 'axios'
 import qs from 'qs'
 import { Message } from 'element-ui'
@@ -27,5 +28,7 @@ axios.interceptors.response.use(
   },
   error => Promise.reject(error.response.data)
 )
+
+Vue.prototype.$http = axios
 
 export default axios

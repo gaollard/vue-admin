@@ -22,12 +22,16 @@
       <el-form-item label="机型图片">
         <el-upload
           name="file"
+          :auto-upload="false"
           drag
+          :on-change="handleChange"
+          :before-upload="handleBeforeUpload"
           :on-success="handleAvatarSuccess"
-          action="https://api.airtlab.com/product/upload"
+          action="http://127.0.0.1:3003/product/upload"
           multiple>
           <i class="el-icon-upload"></i>
           <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+          <img v-if="form.productLogo" :src="imgBaseUrl + form.productLogo">
         </el-upload>
       </el-form-item>
     </el-form>
@@ -43,7 +47,7 @@ import api from '@/api/index'
 export default {
   data () {
     return {
-      imgBaseUrl: 'http//img.airtlab.com',
+      imgBaseUrl: 'http://img.airtlab.com',
       form: {
         productName: 'IPhone 9',
         brandName: '苹果',
@@ -56,6 +60,21 @@ export default {
     }
   },
   methods: {
+    async handleChange (file, fileList) {
+      let formData = new FormData()
+      formData.append('file', file['raw'])
+      // https://api.airtlab.com/product/upload
+      let ret = await this.$http.post('http://127.0.0.1:3003/product/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      this.form.productLogo = ret.data.url
+    },
+    handleBeforeUpload (file) {
+      console.log(file)
+      // return false
+    },
     cancelForm () {
       console.log(1)
     },
