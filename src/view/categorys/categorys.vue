@@ -1,6 +1,6 @@
 <template>
   <div class="view-categorys">
-    <el-table :data="tableData" border style="width: 100%">
+    <el-table :data="categorys" border style="width: 100%">
       <el-table-column prop="categoryId" label="类目索引"></el-table-column>
       <el-table-column prop="categoryName" label="类目名称"></el-table-column>
       <el-table-column prop="createTime" label="创建时间">
@@ -18,21 +18,16 @@
 </template>
 
 <script>
-import api from '@/api/index'
+import { mapState } from 'vuex'
 export default {
-  data () {
-    return {
-      tableData: []
-    }
+  computed: {
+    ...mapState({
+      categorys: state => state.category.categorys
+    })
   },
-  async created () {
-    if (this.tableData.length === 0) {
-      let ret = await api.getCategorys()
-      let list = ret.data.categorys
-      list.forEach(item => {
-        item.createTime = item.updateTime = '2018-06-07T14:54:37.880Z'
-      })
-      this.tableData = list
+  created () {
+    if (this.categorys.length === 0) {
+      this.$store.dispatch('getCategorys')
     }
   }
 }

@@ -1,24 +1,26 @@
 import api from '@/api/index'
 
 export default {
+  namespace: true,
   state: {
-    brands: []
+    brands: [],
+    loading: false
   },
   getters: {
-    brands () {
-      return []
+    brands (state) {
+      return state.brands
     }
   },
   mutations: {
-    SET_BRANDS (state, data) {
+    setBrands (state, data) {
       state.brands = data
     }
   },
   actions: {
-    async GET_BRANDS ({ commit }, data) {
+    async getBrands ({ commit }, data) {
       let ret = await api.getBrands()
-      let list = ret.data.data.brands
-      commit('SET_BRANDS', list)
+      let list = ret.data.brands
+      commit('setBrands', list)
     }
   }
 }

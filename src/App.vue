@@ -44,6 +44,16 @@
             <router-link to="/users" slot="title">用户管理</router-link>
           </el-menu-item>
         </el-submenu>
+        <el-submenu index="4">
+          <template slot="title">
+            <i class="el-icon-menu"></i>
+            <span slot="title">图表应用</span>
+          </template>
+          <el-menu-item index="4-1">
+            <i class="el-icon-menu"></i>
+            <router-link to="/chart/line" slot="title">线图</router-link>
+          </el-menu-item>
+        </el-submenu>
       </el-menu>
     </div>
     <div class="main-wrap">

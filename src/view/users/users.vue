@@ -29,7 +29,7 @@ export default {
   async created () {
     if (this.tableData.length === 0) {
       let ret = await api.getUsers()
-      this.tableData = ret.data.data.list
+      this.tableData = ret.data.list
     }
   }
 }

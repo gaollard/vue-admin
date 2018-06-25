@@ -3,13 +3,19 @@ import Router from 'vue-router'
 
 const home = () => import('@/view/home/home')
 const users = () => import('@/view/users/users')
+
 const demands = () => import('@/view/demands/demands')
+const addDemand = () => import('@/component/edit-demand/edit-demand')
 
 const products = () => import('@/view/products/products')
-const addProduct = () => import('@/view/productEdit/productEdit')
+const addProduct = () => import('@/component/edit-product/edit-product')
 
 const brands = () => import('@/view/brands/brands')
 const categorys = () => import('@/view/categorys/categorys')
+
+
+const chart = () => import('@/view/chart/chart')
+const chart_line = () => import('@/component/chart-line/chart-line')
 
 Vue.use(Router)
 
@@ -41,6 +47,11 @@ export default new Router({
       component: addProduct
     },
     {
+      path: '/addDemand',
+      name: 'addDemand',
+      component: addDemand
+    },
+    {
       path: '/brands',
       name: 'brands',
       component: brands
@@ -49,6 +60,16 @@ export default new Router({
       path: '/categorys',
       name: 'categorys',
       component: categorys
+    },
+    {
+      path: '/chart',
+      component: chart,
+      children: [
+        {
+          path: 'line',
+          component: chart_line
+        }
+      ]
     }
   ]
 })

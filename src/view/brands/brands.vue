@@ -1,6 +1,6 @@
 <template>
   <div class="view-brands">
-    <el-table :data="tableData" border style="width: 100%">
+    <el-table :data="brands" border style="width: 100%">
       <el-table-column prop="brandId" label="品牌索引"></el-table-column>
       <el-table-column prop="brandName" label="品牌名称"></el-table-column>
       <el-table-column prop="categoryId" label="所属类目"></el-table-column>
@@ -19,17 +19,16 @@
 </template>
 
 <script>
-import api from '@/api/index'
+import { mapState } from 'vuex'
 export default {
-  data () {
-    return {
-      tableData: []
-    }
+  computed: {
+    ...mapState({
+      brands: state => state.brand.brands
+    })
   },
-  async created () {
-    if (this.tableData.length === 0) {
-      let ret = await api.getBrands()
-      this.tableData = ret.data.brands
+  created () {
+    if (this.brands.length === 0) {
+      this.$store.dispatch('getBrands')
     }
   }
 }
