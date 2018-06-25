@@ -13,9 +13,8 @@ const addProduct = () => import('@/component/edit-product/edit-product')
 const brands = () => import('@/view/brands/brands')
 const categorys = () => import('@/view/categorys/categorys')
 
-
 const chart = () => import('@/view/chart/chart')
-const chart_line = () => import('@/component/chart-line/chart-line')
+const chartLine = () => import('@/component/chart-line/chart-line')
 
 Vue.use(Router)
 
@@ -67,7 +66,7 @@ export default new Router({
       children: [
         {
           path: 'line',
-          component: chart_line
+          component: chartLine
         }
       ]
     }

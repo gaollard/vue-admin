@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
+import post from './module/post'
 import brand from './module/brand'
 import category from './module/category'
 
@@ -10,6 +12,7 @@ export default new Vuex.Store({
     count: 1
   },
   modules: {
+    post,
     brand,
     category
   }
