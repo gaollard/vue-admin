@@ -1,7 +1,6 @@
 import fetch from './fetch'
 
 const devBaseUrl = '/api/'
-// const devBaseUrl = 'https://api.airtlab.com/'
 const prodBaseUrl = 'https://api.airtlab.com/'
 const isProduction = process.env.NODE_ENV === 'production'
 const baseUrl = isProduction ? prodBaseUrl : devBaseUrl
@@ -21,7 +20,7 @@ export default {
   },
   // 用户列表
   getUsers () {
-    return fetch.get(`${baseUrl}user`)
+    return fetch.get(`${baseUrl}users`)
   },
   // 添加商品
   addProduct (params) {
