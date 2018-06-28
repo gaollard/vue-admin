@@ -6,6 +6,7 @@ const users = () => import('@/view/users/users')
 
 const demands = () => import('@/view/demands/demands')
 const addDemand = () => import('@/component/edit-demand/edit-demand')
+const demandItem = () => import('@/component/demand-item/demand-item')
 
 const products = () => import('@/view/products/products')
 const addProduct = () => import('@/component/edit-product/edit-product')
@@ -36,8 +37,18 @@ export default new Router({
       component: demands
     },
     {
-      path: '/addDemand',
+      path: '/demandItem/:postId',
+      name: 'demandItem',
+      component: demandItem
+    },
+    {
+      path: '/addDemand/:postId?',
       name: 'addDemand',
+      component: addDemand
+    },
+    {
+      path: '/post/edit/:postId?',
+      name: 'postEdit',
       component: addDemand
     },
     {

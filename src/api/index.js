@@ -37,5 +37,20 @@ export default {
   // 帖子列表
   getPosts () {
     return fetch.get(`${baseUrl}post`)
+  },
+  // 文章详情
+  getPostItem ({ postId }) {
+    return fetch.get(`${baseUrl}post/${postId}`)
+  },
+  // 添加文章
+  addPost (params) {
+    return fetch.post(`${baseUrl}post`, params)
+  },
+  // 更新文章
+  updatePost ({ postId, markdown, title }) {
+    return fetch.post(`${baseUrl}post/${postId}`, {
+      title,
+      markdown
+    })
   }
 }
