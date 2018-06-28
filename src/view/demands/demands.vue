@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     toEditPost () {
-      console.log('...')
+      this.$router.push('/addDemand')
     }
   },
   async created () {

@@ -36,6 +36,11 @@ export default new Router({
       component: demands
     },
     {
+      path: '/addDemand',
+      name: 'addDemand',
+      component: addDemand
+    },
+    {
       path: '/products',
       name: 'products',
       component: products
@@ -44,11 +49,6 @@ export default new Router({
       path: '/addProduct',
       name: 'addProduct',
       component: addProduct
-    },
-    {
-      path: '/addDemand',
-      name: 'addDemand',
-      component: addDemand
     },
     {
       path: '/brands',
